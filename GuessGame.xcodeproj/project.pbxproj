@@ -12,7 +12,6 @@
 		5D99005B1D9433250028473D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D99005A1D9433250028473D /* ViewController.m */; };
 		5D99005E1D9433250028473D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D99005C1D9433250028473D /* Main.storyboard */; };
 		5D9900601D9433250028473D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D99005F1D9433250028473D /* Assets.xcassets */; };
-		5D9900631D9433250028473D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D9900611D9433250028473D /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,7 +23,6 @@
 		5D99005A1D9433250028473D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		5D99005D1D9433250028473D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5D99005F1D9433250028473D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5D9900621D9433250028473D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5D9900641D9433250028473D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,7 +62,6 @@
 				5D99005A1D9433250028473D /* ViewController.m */,
 				5D99005C1D9433250028473D /* Main.storyboard */,
 				5D99005F1D9433250028473D /* Assets.xcassets */,
-				5D9900611D9433250028473D /* LaunchScreen.storyboard */,
 				5D9900641D9433250028473D /* Info.plist */,
 				5D9900531D9433250028473D /* Supporting Files */,
 			);
@@ -136,7 +133,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D9900631D9433250028473D /* LaunchScreen.storyboard in Resources */,
 				5D9900601D9433250028473D /* Assets.xcassets in Resources */,
 				5D99005E1D9433250028473D /* Main.storyboard in Resources */,
 			);
@@ -164,14 +160,6 @@
 				5D99005D1D9433250028473D /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		5D9900611D9433250028473D /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5D9900621D9433250028473D /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -300,6 +288,7 @@
 				5D9900691D9433250028473D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
