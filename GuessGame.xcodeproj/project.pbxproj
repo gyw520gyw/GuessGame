@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D102AFD1D982FFB00AF05A1 /* questions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D102AFC1D982FFB00AF05A1 /* questions.plist */; };
+		5D102B001D98304400AF05A1 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D102AFF1D98304400AF05A1 /* Question.m */; };
+		5D47D6661D997F780004EA4A /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D47D6651D997F780004EA4A /* NSArray+Log.m */; };
 		5D9900551D9433250028473D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9900541D9433250028473D /* main.m */; };
 		5D9900581D9433250028473D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9900571D9433250028473D /* AppDelegate.m */; };
 		5D99005B1D9433250028473D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D99005A1D9433250028473D /* ViewController.m */; };
@@ -15,6 +18,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D102AFC1D982FFB00AF05A1 /* questions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = questions.plist; sourceTree = "<group>"; };
+		5D102AFE1D98304400AF05A1 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
+		5D102AFF1D98304400AF05A1 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
+		5D47D6641D997F780004EA4A /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Log.h"; sourceTree = "<group>"; };
+		5D47D6651D997F780004EA4A /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
 		5D9900501D9433250028473D /* GuessGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuessGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D9900541D9433250028473D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5D9900561D9433250028473D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -56,10 +64,14 @@
 		5D9900521D9433250028473D /* GuessGame */ = {
 			isa = PBXGroup;
 			children = (
+				5D47D6641D997F780004EA4A /* NSArray+Log.h */,
+				5D47D6651D997F780004EA4A /* NSArray+Log.m */,
 				5D9900561D9433250028473D /* AppDelegate.h */,
 				5D9900571D9433250028473D /* AppDelegate.m */,
 				5D9900591D9433250028473D /* ViewController.h */,
 				5D99005A1D9433250028473D /* ViewController.m */,
+				5D102AFE1D98304400AF05A1 /* Question.h */,
+				5D102AFF1D98304400AF05A1 /* Question.m */,
 				5D99005C1D9433250028473D /* Main.storyboard */,
 				5D99005F1D9433250028473D /* Assets.xcassets */,
 				5D9900641D9433250028473D /* Info.plist */,
@@ -71,6 +83,7 @@
 		5D9900531D9433250028473D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5D102AFC1D982FFB00AF05A1 /* questions.plist */,
 				5D9900541D9433250028473D /* main.m */,
 			);
 			name = "Supporting Files";
@@ -134,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D9900601D9433250028473D /* Assets.xcassets in Resources */,
+				5D102AFD1D982FFB00AF05A1 /* questions.plist in Resources */,
 				5D99005E1D9433250028473D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,7 +159,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D47D6661D997F780004EA4A /* NSArray+Log.m in Sources */,
 				5D99005B1D9433250028473D /* ViewController.m in Sources */,
+				5D102B001D98304400AF05A1 /* Question.m in Sources */,
 				5D9900581D9433250028473D /* AppDelegate.m in Sources */,
 				5D9900551D9433250028473D /* main.m in Sources */,
 			);

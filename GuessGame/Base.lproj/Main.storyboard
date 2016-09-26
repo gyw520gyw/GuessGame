@@ -31,11 +31,14 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gP2-bv-Cwo">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="gP2-bv-Cwo">
                                 <rect key="frame" x="96" y="90" width="128" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="2" minY="2" maxX="2" maxY="2"/>
                                 <state key="normal" image="movie_jf" backgroundImage="center_img"/>
+                                <connections>
+                                    <action selector="bigImg" destination="BYZ-38-t0r" eventType="touchUpInside" id="hMh-NJ-HhD"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" id="X9W-re-ced">
                                 <rect key="frame" x="0.0" y="114" width="59" height="28"/>
@@ -58,7 +61,7 @@
                                 <state key="normal" title="下一题" backgroundImage="btn_right"/>
                                 <state key="highlighted" backgroundImage="btn_right_highlighted"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="HoC-ww-yJR">
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="HoC-ww-yJR">
                                 <rect key="frame" x="212" y="20" width="102" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -73,7 +76,7 @@
                                 <state key="normal" title="大图" image="icon_img" backgroundImage="btn_right"/>
                                 <state key="highlighted" backgroundImage="btn_right_highlighted"/>
                                 <connections>
-                                    <action selector="bigImg:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uUe-CO-AAD"/>
+                                    <action selector="bigImg" destination="BYZ-38-t0r" eventType="touchUpInside" id="dkd-RF-WMO"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -86,7 +89,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-100.8" y="-461.02666666666664"/>
+            <point key="canvasLocation" x="-101" y="-462"/>
         </scene>
     </scenes>
     <resources>
