@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -60,6 +60,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="下一题" backgroundImage="btn_right"/>
                                 <state key="highlighted" backgroundImage="btn_right_highlighted"/>
+                                <connections>
+                                    <action selector="nextQuestion" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pyu-5k-DRC"/>
+                                </connections>
                             </button>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="HoC-ww-yJR">
                                 <rect key="frame" x="212" y="20" width="102" height="22"/>
@@ -85,6 +88,9 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="iconButton" destination="gP2-bv-Cwo" id="1QS-aE-l3D"/>
+                        <outlet property="nextButton" destination="Jqe-V6-ZXs" id="6G0-oA-Dgp"/>
+                        <outlet property="questionNumLabel" destination="JHX-j7-vGv" id="AWO-Kx-HNy"/>
+                        <outlet property="questionTitleLabel" destination="8ey-ll-nHk" id="8Nb-AF-FGW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

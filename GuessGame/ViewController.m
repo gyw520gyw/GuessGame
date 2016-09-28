@@ -12,10 +12,17 @@
 @interface ViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *iconButton;
+@property (weak, nonatomic) IBOutlet UILabel *questionNumLabel;
+@property (weak, nonatomic) IBOutlet UILabel *questionTitleLabel;
+
+@property (weak, nonatomic) IBOutlet UIButton *nextButton;
 
 @property (nonatomic, strong) UIButton *conver;
 
 @property (nonatomic, strong) NSArray *question;
+
+//索引
+@property (nonatomic, assign) int index;
 
 @end
 
@@ -59,6 +66,7 @@
     
 }
 
+#pragma mark ----- 大小图切换
 //控制图片放大缩小
 - (IBAction)bigImg {
     
@@ -85,6 +93,27 @@
             self.conver.alpha = 0.0;
         } ];
     }
+    
+}
+
+
+
+#pragma mark ----- 下一题
+- (IBAction)nextQuestion {
+    
+    //利用索引从数组取数据
+    self.index ++;
+    
+    //防止数组越界
+    self.nextButton.enabled = (self.index < self.question.count - 1 );
+    
+    Question *que = self.question[self.index];
+    
+    self.questionNumLabel.text = [NSString stringWithFormat:@"%d/%d", self.index+1, self.question.count];
+    
+    self.questionTitleLabel.text = que.title;
+    
+    [self.iconButton setImage:[UIImage imageNamed:que.icon] forState:UIControlStateNormal];
     
 }
 
