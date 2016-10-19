@@ -184,40 +184,57 @@
 /** 创建备选按钮 */
 - (void)createOptionButtonArea:(Question *) que {
 
-    for (UIButton *btn in self.optionView.subviews) {
-        [btn removeFromSuperview];
-    }
-    
-    
-    
+   
     int optionCount = (int) que.options.count;
     
-    CGFloat optionStartX = (self.answerView.bounds.size.width - (buttonWidth * optionColCount) - (buttonMargin * (optionColCount-1))) * 0.5;
+    // 问题：每次调用下一题方法时，都会重新创建21个按钮
+    // 解决：如果按钮已经存在，并且是21个，只需要更改按钮标题即可
+    if(self.optionView.subviews.count != optionCount) {
     
-    for(int i = 0; i < optionCount; i ++) {
+        for (UIButton *btn in self.optionView.subviews) {
+            [btn removeFromSuperview];
+        }
         
         
-        CGFloat row = i / optionColCount;
-        CGFloat col = i % optionColCount;
+        CGFloat optionStartX = (self.answerView.bounds.size.width - (buttonWidth * optionColCount) - (buttonMargin * (optionColCount-1))) * 0.5;
         
-        CGFloat buttonStartX = optionStartX + (buttonMargin + buttonWidth) * col;
-        CGFloat buttonStartY = (buttonMargin + buttonWidth) * row;
-        
-        UIButton *optionButton = [[UIButton alloc]initWithFrame:CGRectMake(buttonStartX, buttonStartY, buttonWidth, buttonHeigth)];
-        
-        
-        [optionButton setBackgroundImage:[UIImage imageNamed:@"btn_option"]forState:UIControlStateNormal];
-        [optionButton setBackgroundImage:[UIImage imageNamed:@"btn_option_highlighted"] forState:UIControlStateHighlighted];
-        //设置字体颜色
-        [optionButton setTitle:que.options[i] forState:UIControlStateNormal];
-        [optionButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-         
-         
-        [self.optionView addSubview:optionButton];
-        
+        for(int i = 0; i < optionCount; i ++) {
+            
+            
+            CGFloat row = i / optionColCount;
+            CGFloat col = i % optionColCount;
+            
+            CGFloat buttonStartX = optionStartX + (buttonMargin + buttonWidth) * col;
+            CGFloat buttonStartY = (buttonMargin + buttonWidth) * row;
+            
+            UIButton *optionButton = [[UIButton alloc]initWithFrame:CGRectMake(buttonStartX, buttonStartY, buttonWidth, buttonHeigth)];
+            
+            
+            [optionButton setBackgroundImage:[UIImage imageNamed:@"btn_option"]forState:UIControlStateNormal];
+            [optionButton setBackgroundImage:[UIImage imageNamed:@"btn_option_highlighted"] forState:UIControlStateHighlighted];
+            //设置字体颜色
+            [optionButton setTitle:que.options[i] forState:UIControlStateNormal];
+            [optionButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            
+            
+            [self.optionView addSubview:optionButton];
+    
+        }
+    
+        NSLog(@"创建按钮..");
         
     }
-
+    
+    
+    // 如果按钮存在, 切换时替换文字
+    int i = 0;
+    
+    for(UIButton *btn in self.optionView.subviews) {
+        
+        [btn setTitle:que.options[i++] forState:UIControlStateNormal];
+        
+    
+    }
 }
 
 
