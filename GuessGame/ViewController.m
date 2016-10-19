@@ -121,6 +121,14 @@
     //利用索引从数组取数据
     self.index ++;
     
+    
+    if(self.index == self.question.count) {
+        
+        NSLog(@"恭喜你! 通关了!");
+        
+        return;
+    }
+    
     //从数组中按照索引取出题目模型数据
     Question *que = self.question[self.index];
 
@@ -174,6 +182,8 @@
         [answerButton setBackgroundImage:[UIImage imageNamed:@"btn_answer"]forState:UIControlStateNormal];
         [answerButton setBackgroundImage:[UIImage imageNamed:@"btn_answer_highlighted"] forState:UIControlStateHighlighted];
         
+        [answerButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        
         [self.answerView addSubview:answerButton];
         
     }
@@ -218,6 +228,9 @@
             
             
             [self.optionView addSubview:optionButton];
+            
+            // 添加按钮监听方法
+            [optionButton addTarget:self action:@selector(optionClick:) forControlEvents:UIControlEventTouchUpInside];
     
         }
     
@@ -233,8 +246,103 @@
         
         [btn setTitle:que.options[i++] forState:UIControlStateNormal];
         
+        //在填好答案会隐藏,将按钮显示出来
+        btn.hidden = NO;
     
     }
+}
+
+
+#pragma mark - 候选按钮点击方法
+
+
+- (void)optionClick:(UIButton *) button {
+    
+    // 在安全区找到第一个文字为空的按钮
+    UIButton *firstBtn = [self firstAnswerButton];
+    
+    
+    // 如果没有找到, 直接返回
+    if(firstBtn == nil) {
+        return;
+    }
+    
+    // 将选中的文字赋值在答案区
+    [firstBtn setTitle:button.currentTitle forState:UIControlStateNormal];
+    
+    //将选择过得文字隐藏
+    button.hidden = YES;
+    
+    // 比较答案, 判断结果
+    [self jude];
+
+}
+
+/**比较结果 */
+- (void) jude {
+
+    //如果四个按钮都有文字才判断
+    
+    BOOL isFull = false;
+    
+    NSMutableString *mutableStr = [NSMutableString string];
+    
+    for(UIButton *btn in self.answerView.subviews) {
+        
+        if(btn.currentTitle.length == 0) {
+            isFull = false;
+            break;
+        } else {
+            isFull = true;
+            //有字, 拼接字符串
+            [mutableStr appendString:btn.currentTitle];
+        }
+        
+    }
+    
+    
+    if(isFull) {
+        NSLog(@"字是满的");
+        
+        //判断答案是否一致
+        Question *que = self.question[self.index];
+        
+        if([mutableStr isEqualToString:que.answer]) {
+            NSLog(@"答对啦");
+            
+            [self setAnwserButtonColor:[UIColor blueColor]];
+            
+            //延时0.5秒 进入下一题
+            [self performSelector:@selector(nextQuestion) withObject:nil afterDelay:0.5];
+            
+        } else {
+            NSLog(@"打错了");
+            
+            [self setAnwserButtonColor:[UIColor redColor]];
+        }
+    
+    }
+}
+
+/** 修改答案区按钮的颜色 */
+- (void) setAnwserButtonColor:(UIColor *) color {
+    for(UIButton *btn in self.answerView.subviews) {
+        [btn setTitleColor:color forState:UIControlStateNormal];
+    }
+}
+
+
+/** 在答案区找到第一个文字为空的按钮*/
+- (UIButton *) firstAnswerButton {
+  
+    for(UIButton *btn in self.answerView.subviews) {
+        if(btn.currentTitle.length == 0) {
+            return btn;
+        }
+    }
+    
+    return nil;
+    
 }
 
 
