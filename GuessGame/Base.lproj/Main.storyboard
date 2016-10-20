@@ -38,6 +38,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="提示" image="icon_tip" backgroundImage="btn_left"/>
                                 <state key="highlighted" backgroundImage="btn_left_highlighted"/>
+                                <connections>
+                                    <action selector="tipClick" destination="BYZ-38-t0r" eventType="touchUpInside" id="01W-RQ-ApR"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" id="cIf-5p-9uY">
                                 <frame key="frameInset" minY="200" width="59" height="28"/>
@@ -57,7 +60,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="HoC-ww-yJR">
-                                <frame key="frameInset" minX="218" minY="33" width="102" height="22"/>
+                                <frame key="frameInset" minX="218" minY="33" width="92" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="10000" image="coin">
@@ -101,6 +104,7 @@
                         <outlet property="optionView" destination="yZR-QP-sRd" id="pgk-l6-Cxl"/>
                         <outlet property="questionNumLabel" destination="JHX-j7-vGv" id="AWO-Kx-HNy"/>
                         <outlet property="questionTitleLabel" destination="8ey-ll-nHk" id="8Nb-AF-FGW"/>
+                        <outlet property="scoreButton" destination="HoC-ww-yJR" id="K37-y9-Wfb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

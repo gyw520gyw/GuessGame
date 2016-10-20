@@ -24,6 +24,9 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
 
+@property (weak, nonatomic) IBOutlet UIButton *scoreButton;
+
+
 @property (weak, nonatomic) IBOutlet UIView *answerView;
 
 @property (weak, nonatomic) IBOutlet UIView *optionView;
@@ -83,7 +86,7 @@
     
 }
 
-#pragma mark ----- 大小图切换
+#pragma mark - 大小图切换
 //控制图片放大缩小
 - (IBAction)bigImg {
     
@@ -115,7 +118,7 @@
 
 
 
-#pragma mark ----- 下一题
+#pragma mark - 下一题
 - (IBAction)nextQuestion {
     
     //利用索引从数组取数据
@@ -185,6 +188,9 @@
         [answerButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         
         [self.answerView addSubview:answerButton];
+        
+        
+        [answerButton addTarget:self action:@selector(answerClick:) forControlEvents:UIControlEventTouchUpInside];
         
     }
 
@@ -312,6 +318,8 @@
             
             [self setAnwserButtonColor:[UIColor blueColor]];
             
+            [self changeScore:50];
+            
             //延时0.5秒 进入下一题
             [self performSelector:@selector(nextQuestion) withObject:nil afterDelay:0.5];
             
@@ -342,6 +350,77 @@
     }
     
     return nil;
+    
+}
+
+
+#pragma mark - 答案区按钮
+- (void)answerClick:(UIButton *) btn {
+    
+    //如果没有文字, 直接返回
+    if(btn.currentTitle.length == 0) {
+        return;
+    }
+    
+    // 获取备选区的相同文字的按钮并显示
+    UIButton *optionButton = [self optionButtonWithContent:btn.currentTitle isHidden:YES];
+    
+    
+    optionButton.hidden = NO;
+    
+    
+    [btn setTitle:@"" forState:UIControlStateNormal];
+    
+    //修改按钮的颜色
+    [self setAnwserButtonColor:[UIColor blackColor]];
+
+}
+
+- (UIButton *)optionButtonWithContent:(NSString *) str isHidden:(BOOL)isHidden{
+
+    for(UIButton *btn in self.optionView.subviews) {
+        if([str isEqualToString:btn.currentTitle] && btn.hidden == isHidden) {
+            return btn;
+        }
+    }
+    return nil;
+}
+
+
+
+#pragma mark - 提示功能
+- (IBAction)tipClick {
+    
+    //获取答案, 找到第一个答案
+    Question *que = self.question[self.index];
+    
+    NSString *answerFirstStr = [que.answer substringToIndex:1];
+    
+    //遍历 点击按钮 实现隐藏的效果
+    for(UIButton *btn in self.answerView.subviews) {
+        [self answerClick:btn];
+    }
+    
+    //将备选区正确答案第一个字隐藏
+    UIButton *optionBtn = [self optionButtonWithContent:answerFirstStr isHidden:NO];
+    
+    // 点击备选区按钮  实现文字在答案区显示
+    [self optionClick:optionBtn];
+   
+    //扣分
+    [self changeScore:-100];
+    
+}
+
+
+#pragma mark - 修改分数
+- (void)changeScore:(int)score {
+    
+    int crrentScore = self.scoreButton.currentTitle.intValue;
+    
+    crrentScore += score;
+    
+    [self.scoreButton setTitle:[NSString stringWithFormat:@"%d", crrentScore] forState:UIControlStateNormal];
     
 }
 
