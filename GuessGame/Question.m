@@ -46,6 +46,26 @@
 }
 
 
+//打乱备选区文字
+- (void) randamOption {
+
+    self.options = [self.options sortedArrayUsingComparator:^NSComparisonResult(NSString *str1, NSString *str2) {
+      
+        int seed = arc4random_uniform(2);
+        
+        if(seed) {
+            return [str1 compare:str2];
+        } else {
+            return [str2 compare:str2];
+        }
+        
+    }];
+    
+    NSLog(@"%@", self.options);
+    
+}
+
+
 - (NSString *)description
 {
     return [NSString stringWithFormat:@"<%@: %p> {answer: %@ , icon: %@ , title: %@ , options: %@}", self.class, self, self.answer, self.icon, self.title, self.options];

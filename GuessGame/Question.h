@@ -15,9 +15,11 @@
 @property(nonatomic, strong) NSString *title;
 @property(nonatomic, strong) NSArray *options;
 
--(instancetype)initWithDict:(NSDictionary *) dict;
-+(instancetype)questionWithDict:(NSDictionary *) dict;
+- (instancetype)initWithDict:(NSDictionary *) dict;
++ (instancetype)questionWithDict:(NSDictionary *) dict;
 
-+(NSArray *)questions;
++ (NSArray *)questions;
+
+- (void)randamOption;
 
 @end

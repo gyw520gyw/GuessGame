@@ -154,8 +154,6 @@
     //防止数组越界
     self.nextButton.enabled = (self.index < self.question.count - 1 );
     
-    
-    
     self.questionNumLabel.text = [NSString stringWithFormat:@"%d/%d", self.index+1, (int)self.question.count];
     
     self.questionTitleLabel.text = que.title;
@@ -247,6 +245,9 @@
     
     // 如果按钮存在, 切换时替换文字
     int i = 0;
+    
+    // 让模型打乱数据，每次点击下一题的时候，都会乱序
+    [que randamOption];
     
     for(UIButton *btn in self.optionView.subviews) {
         
